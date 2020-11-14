@@ -14,7 +14,11 @@ for (let i = 0; i < resJson.data.length; i++){
 // Description
 // Website URL
    $('#results-list').append(
-      `<li><h3>${resJson.data[i].fullName}</h3>
+      `<br><br>
+      <li><h3>${resJson.data[i].fullName}</h3>
+      <ul>
+      <p>Physical Address:<br>${resJson.data[i].addresses[0].line1}<br>${resJson.data[i].addresses[0].city}, ${resJson.data[i].addresses[0].stateCode} ${resJson.data[i].addresses[0].postalCode}</p>
+      </ul>
       <p>${resJson.data[i].description}</p>
       <a href='${resJson.data[i].url}' >${resJson.data[i].url}</a>
       </li>`
@@ -34,7 +38,7 @@ function getParkList(query, maxResults=10){
    const params = {
       api_key: apiKey,
       stateCode: query,
-      limit: maxResults,
+      limit: maxResults,      
    };
    const string = prepareQueryParams(params);
    const url = searchURL + '?' + string;
