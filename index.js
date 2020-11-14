@@ -16,7 +16,7 @@ for (let i = 0; i < resJson.data.length; i++){
    $('#results-list').append(
       `<li><h3>${resJson.data[i].fullName}</h3>
       <p>${resJson.data[i].description}</p>
-      <a href='${resJson.items[i].url}'></a>
+      <a href='${resJson.data[i].url}' >${resJson.data[i].url}</a>
       </li>`
    )};
 //display the results section  
@@ -60,6 +60,7 @@ function watchForm() {
    const states = $('#js-search-term').val();
    const maxResults = $('#js-max-results').val();
    getParkList(states, maxResults);
+   console.log(states);
    });
 }
 
